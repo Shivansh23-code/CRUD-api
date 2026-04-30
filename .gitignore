@@ -1,0 +1,60 @@
+# ===============================
+# Build tools
+# ===============================
+target/
+build/
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Maven Wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# ===============================
+# IDEs
+# ===============================
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+
+# Eclipse / STS
+.classpath
+.project
+.settings/
+.springBeans
+.sts4-cache
+.apt_generated
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# ===============================
+# OS files
+# ===============================
+.DS_Store
+
+# ===============================
+# Logs
+# ===============================
+*.log
+
+# ===============================
+# Environment & Secrets
+# ===============================
+.env
+.env.*
+
+
+
+# ===============================
+# Java
+# ===============================
+*.class
