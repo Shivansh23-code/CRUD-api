@@ -11,7 +11,7 @@ import java.util.Date;
 public class JwtUtil {
 
     private final String SECRET = "MySecretKeyIsSuperKeyUsedWithHeaderAndPayload";
-    private final long Access_EXPIRATION = 1000 * 60 * 60;
+    private final long Access_EXPIRATION = 1000 * 60 * 60 * 8;
     private final long Refresh_EXPIRATION = 1000 * 60 * 60 * 24 * 7;
 
     private final Key key = Keys.hmacShaKeyFor(SECRET.getBytes());

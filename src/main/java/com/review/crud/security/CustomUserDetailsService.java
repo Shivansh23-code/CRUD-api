@@ -4,6 +4,7 @@ import com.review.crud.Entity.User;
 import com.review.crud.Repository.UserRepository;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
+import com.review.crud.annotation.ProfileExecution;
 
 import java.util.Collections;
 
@@ -17,6 +18,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
 
     @Override
+    @ProfileExecution
     public UserDetails loadUserByUsername(String userName)
             throws UsernameNotFoundException {
 

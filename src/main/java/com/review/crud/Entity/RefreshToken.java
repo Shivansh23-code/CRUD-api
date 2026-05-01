@@ -13,24 +13,25 @@ public class RefreshToken {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    private String r_token;
+    @Column(name = "r_token")
+    private String token;
     @Column(name = "username")
     private String userName;
     private Date expiryDate;
 
     public RefreshToken() {}
-    public RefreshToken(String r_token, String userName, Date expiryDate){
-        this.r_token = r_token;
+    public RefreshToken(String token, String userName, Date expiryDate){
+        this.token = token;
         this.userName = userName;
         this.expiryDate = expiryDate;
     }
 
     public String getToken() {
-        return r_token;
+        return token;
     }
 
-    public void setToken(String r_token) {
-        this.r_token = r_token;
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public String getUserName() {

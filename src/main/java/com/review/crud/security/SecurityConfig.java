@@ -1,6 +1,7 @@
 package com.review.crud.security;
 
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.*;
@@ -26,6 +27,7 @@ public class SecurityConfig {
     private final JwtFilter jwtFilter;
     private final CustomUserDetailsService userDetailsService;
 
+    @Autowired
     public SecurityConfig(JwtFilter jwtFilter,
                           CustomUserDetailsService userDetailsService) {
         this.jwtFilter = jwtFilter;
@@ -76,8 +78,9 @@ public class SecurityConfig {
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider =
-                new DaoAuthenticationProvider(userDetailsService);
+                new DaoAuthenticationProvider();
 
+        provider.setUserDetailsService(userDetailsService);
         provider.setPasswordEncoder(passwordEncoder());
         return provider;
     }
