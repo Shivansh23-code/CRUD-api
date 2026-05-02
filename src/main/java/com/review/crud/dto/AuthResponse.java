@@ -18,9 +18,4 @@ public class AuthResponse {
         this.refreshToken = refreshToken;
     }
 
-//    public String getToken(){
-//        return accessToken;
-//    }
-
-
 }

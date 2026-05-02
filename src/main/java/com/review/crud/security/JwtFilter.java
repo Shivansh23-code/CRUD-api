@@ -31,7 +31,6 @@ public class JwtFilter extends OncePerRequestFilter {
 
         String path = request.getRequestURI();
 
-        // ✅ Skip auth endpoints + preflight
         if (path.startsWith("/auth") ||
                 "OPTIONS".equalsIgnoreCase(request.getMethod())) {
             chain.doFilter(request, response);
@@ -45,7 +44,16 @@ public class JwtFilter extends OncePerRequestFilter {
 
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             token = authHeader.substring(7);
-            username = jwtUtil.extractUsername(token);
+
+            try{
+                if(!token.equals("undefined") && !token.equals("null")) {
+                    username = jwtUtil.extractUsername(token);
+                }
+            } catch (Exception e){
+                System.out.println("Error extracting username from token" +  e.getMessage());
+            }
+
+
         }
 
         if (username != null &&
